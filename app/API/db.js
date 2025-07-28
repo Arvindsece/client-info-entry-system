@@ -1,7 +1,5 @@
 import { MongoClient } from 'mongodb';
 
-
-
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://arvindb2023cce:1234@cluster0.vppiw.mongodb.net/client?retryWrites=true&w=majority';
 const MONGODB_DB = process.env.MONGODB_DB || 'client';
 
@@ -13,6 +11,7 @@ if (!MONGODB_DB) {
   throw new Error('Please define the MONGODB_DB environment variable inside .env.local');
 }
 
+// Global cache (helps with hot reload in development)
 let cachedClient = null;
 let cachedDb = null;
 
@@ -37,4 +36,4 @@ export async function connectToDatabase() {
 export async function getCollection(collectionName) {
   const { db } = await connectToDatabase();
   return db.collection(collectionName);
-} 
+}
