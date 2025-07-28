@@ -1,4 +1,4 @@
-import { getCollection } from '../app/API/db';
+import { getCollection } from '../../app/API/db';
 
 export default async function handler(req, res) {
   try {
