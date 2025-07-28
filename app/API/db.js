@@ -1,4 +1,7 @@
 import { MongoClient } from 'mongodb';
+import { connectToDatabase } from '../app/API/db';
+
+
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://arvindb2023cce:1234@cluster0.vppiw.mongodb.net/client?retryWrites=true&w=majority';
 const MONGODB_DB = process.env.MONGODB_DB || 'client';
