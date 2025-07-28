@@ -14,6 +14,7 @@ if (!MONGODB_DB) {
 let cachedClient = null;
 let cachedDb = null;
 
+// ✅ Only ONE definition of connectToDatabase
 export async function connectToDatabase() {
   if (cachedClient && cachedDb) {
     return { client: cachedClient, db: cachedDb };
@@ -32,6 +33,7 @@ export async function connectToDatabase() {
   return { client, db };
 }
 
+// ✅ This is okay to include
 export async function getCollection(collectionName) {
   const { db } = await connectToDatabase();
   return db.collection(collectionName);
