@@ -134,7 +134,7 @@ export default function LoginPage({ userType = 'admin' }) {
 
         <div className="text-center mt-4">
           <p style={{ color: '#666' }}>
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link 
               href={userType === 'admin' ? '/admin/signup' : '/user/signup'}
               style={{ 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function ApiTest() {
   const [results, setResults] = useState({});
@@ -112,9 +113,9 @@ export default function ApiTest() {
         </div>
 
         <div className="text-center mt-4">
-          <a href="/" className="btn btn-secondary">
+          <Link href="/" className="btn btn-secondary">
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

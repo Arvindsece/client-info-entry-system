@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import BlogForm from '../../../Components/BlogForm';
 
@@ -11,9 +11,9 @@ export default function AdminEdit() {
 
   useEffect(() => {
     fetchInfo();
-  }, []);
+  }, [fetchInfo]);
 
-  const fetchInfo = async () => {
+  const fetchInfo = useCallback(async () => {
     try {
       const response = await fetch(`/api/blogs/${params.id}`);
       if (response.ok) {
@@ -25,7 +25,7 @@ export default function AdminEdit() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [params.id]);
 
   if (loading) {
     return (

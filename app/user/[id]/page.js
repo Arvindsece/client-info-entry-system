@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -11,9 +11,9 @@ export default function UserInfoDetail() {
 
   useEffect(() => {
     fetchInfo();
-  }, []);
+  }, [fetchInfo]);
 
-  const fetchInfo = async () => {
+  const fetchInfo = useCallback(async () => {
     try {
       const response = await fetch(`/api/blogs/${params.id}`);
       if (response.ok) {
@@ -25,7 +25,7 @@ export default function UserInfoDetail() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [params.id]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);

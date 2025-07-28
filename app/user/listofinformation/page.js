@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import BlogCard from '../../Components/BlogCard';
 
 export default function UserInformationList() {
@@ -12,9 +13,9 @@ export default function UserInformationList() {
 
   useEffect(() => {
     fetchInfo();
-  }, [category, page]);
+  }, [fetchInfo]);
 
-  const fetchInfo = async () => {
+  const fetchInfo = useCallback(async () => {
     try {
       const params = new URLSearchParams({
         page: page.toString(),
@@ -36,7 +37,7 @@ export default function UserInformationList() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [page, category]);
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
@@ -65,9 +66,9 @@ export default function UserInformationList() {
               <p>Browse through our collection of informative articles</p>
             </div>
             <div className="d-flex gap-2">
-              <a href="/user/userProfile" className="btn btn-secondary">
+              <Link href="/user/userProfile" className="btn btn-secondary">
                 Profile
-              </a>
+              </Link>
               <button 
                 onClick={async () => {
                   try {

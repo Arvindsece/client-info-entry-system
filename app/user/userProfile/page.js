@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function UserProfile() {
   const [user, setUser] = useState(null);
@@ -38,9 +39,9 @@ export default function UserProfile() {
         <div className="d-flex justify-between align-center mb-4">
           <h1 className="form-title">User Profile</h1>
                       <div className="d-flex gap-2">
-              <a href="/user/listofinformation" className="btn btn-secondary">
+              <Link href="/user/listofinformation" className="btn btn-secondary">
                 Back to Info List
-              </a>
+              </Link>
             <button 
               onClick={async () => {
                 try {

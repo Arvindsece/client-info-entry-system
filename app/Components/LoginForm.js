@@ -109,7 +109,7 @@ export default function LoginForm({ userType = 'admin' }) {
 
       <div className="text-center mt-3">
         <p>
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link 
             href={userType === 'admin' ? '/admin/signup' : '/user/signup'}
             style={{ color: '#667eea', textDecoration: 'underline' }}
