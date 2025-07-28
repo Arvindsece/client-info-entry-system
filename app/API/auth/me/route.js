@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getCollection } from '../../../API/db';
-import { verifyToken } from '../../../API/auth';
+import { getCollection } from '../../db';
+import { verifyToken } from '../../auth';
 
 export async function GET(request) {
   try {

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getCollection } from '../../API/db';
-import { hashPassword, generateUserId } from '../../API/auth';
+import { getCollection } from '../db';
+import { hashPassword, generateUserId } from '../auth';
 
 export async function POST(request) {
   try {
