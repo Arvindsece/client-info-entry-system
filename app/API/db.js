@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb';
-import { connectToDatabase } from '../app/API/db';
 
 
 
