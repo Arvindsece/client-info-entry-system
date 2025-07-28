@@ -11,7 +11,6 @@ if (!MONGODB_DB) {
   throw new Error('Please define the MONGODB_DB environment variable inside .env.local');
 }
 
-// Global cache (helps with hot reload in development)
 let cachedClient = null;
 let cachedDb = null;
 
